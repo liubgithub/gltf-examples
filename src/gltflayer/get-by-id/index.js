@@ -23,6 +23,7 @@ var markers = [];
 for (let i = 0; i < 3; i++) {
   for (let j = 0; j < 3; j++) {
     var gltfmarker = new maptalks.GLTFMarker(position.add(i * 0.01 - 0.015, j * 0.01 - 0.015), {
+      id: `${i}_${j}`,
       symbol: symbol
     });
     markers.push(gltfmarker);
@@ -30,3 +31,8 @@ for (let i = 0; i < 3; i++) {
 }
 
 gltflayer.addMarker(markers);
+
+setTimeout(function() {
+  var gltfmarker = gltflayer.getGeometryById('0_1');
+  gltfmarker.setScale([2.0, 2.0, 2.0]);
+}, 2000);

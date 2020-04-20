@@ -1,6 +1,7 @@
 var map = new maptalks.Map('map', {
   center: [-0.113049,51.498568],
   zoom: 14,
+  pitch: 75,
   baseLayer: new maptalks.TileLayer('base', {
     urlTemplate: '$(urlTemplate)',
     subdomains: $(subdomains),
@@ -9,7 +10,7 @@ var map = new maptalks.Map('map', {
 });
 var gui = new dat.GUI({ width: 250 });
 var Config = function () {
-  this.outline = true;
+  this.outline = false;
 };
 var options = new Config();
 var url = '../../../../resource/gltf/cube-animation/cube.gltf';

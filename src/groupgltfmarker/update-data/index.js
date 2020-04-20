@@ -1,6 +1,7 @@
 var map = new maptalks.Map('map', {
   center: [-0.113049,51.498568],
   zoom: 14,
+  pitch: 75,
   baseLayer: new maptalks.TileLayer('base', {
     urlTemplate: '$(urlTemplate)',
     subdomains: $(subdomains),
@@ -41,5 +42,5 @@ var groupgltfmarker = new maptalks.GroupGLTFMarker(data, {
 }).addTo(gltflayer);
 
 setTimeout(() => {
-  groupgltfmarker.updateData(0, 'color', [0.1, 0.8, 0.3, 1.0]);
+  groupgltfmarker.updateData(0, 'scale', [2, 2, 2]);
 }, 2000);
