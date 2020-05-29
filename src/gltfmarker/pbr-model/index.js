@@ -12,6 +12,15 @@ var url = '../../../../resource/gltf/running_tiger/scene.gltf';
 
 var gltflayer = new maptalks.GLTFLayer('gltf').addTo(map);
 var position = map.getCenter();
+//phong光照作为对比
+new maptalks.GLTFMarker(position.add(0.1, 0), {
+  symbol : {
+    url : url,
+    animation : true,
+    loop : true,
+    rotation: [90, 0, 0]
+  }
+}).addTo(gltflayer)
 var loader = new maptalksgl.reshader.ResourceLoader();
 var hdr = new maptalksgl.reshader.Texture2D(
   {
@@ -48,7 +57,10 @@ gltflayer.on('contextcreate', e => {
         'uTextureEnvironmentSpecularPBRLodRange': [mipLevel, mipLevel],
         'uTextureEnvironmentSpecularPBRTextureSize': [PREFILTER_CUBE_SIZE, PREFILTER_CUBE_SIZE],
         'uSketchfabLight0_diffuse': [1.4192, 1.3973, 1.4269, 1],
-        'uSketchfabLight0_viewDirection': [0.6170, 0.6895, -0.3793]
+        'uSketchfabLight0_viewDirection': [0.6170, 0.6895, -0.3793],
+        'uRGBMRange': 7.0,
+        'polygonFill': [1.0, 1.0, 1.0, 1.0],
+        'polygonOpacity': 0.8
     };
     new maptalks.GLTFMarker(position, {
         symbol : {

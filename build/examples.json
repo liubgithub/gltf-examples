@@ -12,18 +12,21 @@
         {"name" : "set-uniform", "title" : {"cn" : "设置模型的unfirom", "en" : "set gltfmarker's unifrom"}},
         {"name" : "change-shader", "title" : {"cn" : "切换模型的渲染着色器", "en" : "change gltfmarker's shader"}},
         {"name" : "set-symbol", "title" : {"cn" : "设置模型的symbol", "en" : "set gltfmarker's symbol"}},
+        {"name" : "open-infowindow", "title" : {"cn" : "打开信息框", "en" : "open infowindow of gltfmarker"}},
         {"name" : "mouse-events", "title" : {"cn" : "监听鼠标事件", "en" : "listenning mouse events"}},
         {"name" : "set-outline", "title" : {"cn" : "设置模型的外轮廓", "en" : "set gltfmarker's outline"}},
         {"name" : "skinning-marker", "title" : {"cn" : "加载有骨骼动画的模型", "en" : "add skinning marker"}},
         {"name" : "set-bloom", "title" : {"cn" : "设置模型的泛光效果", "en" : "set gltfmarker's bloom effect"}},
-        {"name" : "pbr-model", "title" : {"cn" : "加载PBR材质的模型", "en" : "add pbr material model"}}
+        {"name" : "set-shadow", "title" : {"cn" : "设置模型的阴影效果", "en" : "set gltfmarker's shadow effect"}},
+        {"name" : "pbr-model", "title" : {"cn" : "加载PBR材质的模型", "en" : "add pbr material model"}},
+        {"name" : "glowring-marker", "title" : {"cn" : "发光环", "en" : "glowring marker"}}
       ]
     },
     {
       "name" : "groupgltfmarker",
       "title" : {"cn" : "instance模型", "en":"instance gltf marker"},
       "examples" : [
-        {"name" : "addto-gltflayer", "title" : {"cn" : "模型添加到图层上", "en" : "add to gltflayer"}},
+        {"name" : "add-to-layer", "title" : {"cn" : "模型添加到图层上", "en" : "add to gltflayer"}},
         {"name" : "add-data", "title" : {"cn" : "增加一个数据项", "en" : "add a data item"}},
         {"name" : "remove-data", "title" : {"cn" : "删除一个数据项", "en" : "remove a data item"}},
         {"name" : "update-data", "title" : {"cn" : "更新一个数据项", "en" : "update a data item"}},
@@ -35,6 +38,7 @@
       "title" : {"cn" : "gltf模型图层", "en":"gltf model layer"},
       "examples" : [
         {"name" : "add-marker", "title" : {"cn" : "模型添加到图层上", "en" : "add to gltflayer"}},
+        {"name" : "get-by-id", "title" : {"cn" : "根据id查找gltfmarker", "en" : "get gltfmarker by id"}},
         {"name" : "remove-marker", "title" : {"cn" : "移除图层上的gltfmarker", "en" : "remove a gltfmarker on gltflayer"}},
         {"name" : "clear-layer", "title" : {"cn" : "清空图层", "en" : "clear all markers on layer"}},
         {"name" : "show-hide", "title" : {"cn" : "图层的显示与隐藏", "en" : "show or hide a gltflayer"}},
@@ -51,6 +55,15 @@
         {"name" : "sequence-animation", "title" : {"cn" : "序列帧动画", "en" : "sequence animation"}},
         {"name" : "uv-animation", "title" : {"cn" : "uv动画特效", "en" : "uv effect animation"}},
         {"name" : "effect-demo", "title" : {"cn" : "特效实例", "en" : "effect demo"}}
+      ]
+    },
+    {
+      "name" : "analysis",
+      "title" : {"cn" : "分析功能", "en":"analysis"},
+      "examples" : [
+        {"name" : "viewshed-analysis", "title" : {"cn" : "可视域分析", "en" : "viewshed analysis"}},
+        {"name" : "flood-analysis", "title" : {"cn" : "水淹分析", "en" : "flood analysis"}},
+        {"name" : "skyline-analysis", "title" : {"cn" : "天际线分析", "en" : "skyline analysis"}}
       ]
     }
   ]

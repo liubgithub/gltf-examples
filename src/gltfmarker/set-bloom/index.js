@@ -1,6 +1,15 @@
 var map = new maptalks.Map('map', {
   center: [-0.113049,51.498568],
   zoom: 10,
+  lights: {
+    ambient: {
+        color: [0.1, 0.1, 0.1]
+    },
+    directional: {
+        color: [1, 1, 1],
+        direction: [1, 0, -1],
+    }
+  },
   baseLayer: new maptalks.TileLayer('base', {
     urlTemplate: '$(urlTemplate)',
     subdomains: $(subdomains),
