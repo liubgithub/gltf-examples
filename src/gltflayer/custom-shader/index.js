@@ -29,22 +29,30 @@ const frag = `
     gl_FragColor = vec4(vColor, 1.0);
   }
 `;
-maptalks.GLTFLayer.registerShader('myShader', 'MeshShader', ['color']);
-var symbol = {
-  url: url,
-  animation: true,
-  loop: true,
-  shader: 'myShader',
-  rotation: [90, 0, 0],
-  uniforms: {
-    'color': [0.0, 1.0, 0.3]
-  }
+const config =  {
+  vert : vert,
+  frag : frag,
+  uniforms : [
+      'projViewMatrix',
+      'color'
+  ],
+  positionAttribute : 'POSITION'
 };
+maptalks.GLTFLayer.registerShader('myShader', 'MeshShader', config);
 
 var gltflayer = new maptalks.GLTFLayer('gltf').addTo(map);
 var position = map.getCenter();
 var gltfmarker = new maptalks.GLTFMarker(position, {
-  symbol: symbol
+  symbol: {
+    url: url,
+    animation: true,
+    loop: true,
+    shader: 'myShader',
+    rotation: [90, 0, 0],
+    uniforms: {
+      'color': [0.0, 1.0, 0.3]
+    }
+  }
 });
 
 gltflayer.addMarker(gltfmarker);
