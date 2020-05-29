@@ -18,7 +18,8 @@
         {"name" : "skinning-marker", "title" : {"cn" : "加载有骨骼动画的模型", "en" : "add skinning marker"}},
         {"name" : "set-bloom", "title" : {"cn" : "设置模型的泛光效果", "en" : "set gltfmarker's bloom effect"}},
         {"name" : "set-shadow", "title" : {"cn" : "设置模型的阴影效果", "en" : "set gltfmarker's shadow effect"}},
-        {"name" : "pbr-model", "title" : {"cn" : "加载PBR材质的模型", "en" : "add pbr material model"}}
+        {"name" : "pbr-model", "title" : {"cn" : "加载PBR材质的模型", "en" : "add pbr material model"}},
+        {"name" : "glowring-marker", "title" : {"cn" : "发光环", "en" : "glowring marker"}}
       ]
     },
     {
@@ -54,6 +55,15 @@
         {"name" : "sequence-animation", "title" : {"cn" : "序列帧动画", "en" : "sequence animation"}},
         {"name" : "uv-animation", "title" : {"cn" : "uv动画特效", "en" : "uv effect animation"}},
         {"name" : "effect-demo", "title" : {"cn" : "特效实例", "en" : "effect demo"}}
+      ]
+    },
+    {
+      "name" : "analysis",
+      "title" : {"cn" : "分析功能", "en":"analysis"},
+      "examples" : [
+        {"name" : "viewshed-analysis", "title" : {"cn" : "可视域分析", "en" : "viewshed analysis"}},
+        {"name" : "flood-analysis", "title" : {"cn" : "水淹分析", "en" : "flood analysis"}},
+        {"name" : "skyline-analysis", "title" : {"cn" : "天际线分析", "en" : "skyline analysis"}}
       ]
     }
   ]

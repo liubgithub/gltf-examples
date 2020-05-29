@@ -4,6 +4,15 @@ var map = new maptalks.Map('map', {
   minZoom: 1,
   maxZoom: 19,
   pitch : 45,
+  lights: {
+    ambient: {
+        color: [0.1, 0.1, 0.1]
+    },
+    directional: {
+        color: [1, 1, 1],
+        direction: [1, 0, -1],
+    }
+  },
   baseLayer: new maptalks.TileLayer('base', {
       urlTemplate: 'http://api2.map.bdimg.com/customimage/tile?&x={x}&y={y}&z={z}&udt=20161109&scale=1&styles=t%3Awater%7Ce%3Aall%7Cc%3A%23044161%2Ct%3Aland%7Ce%3Aall%7Cc%3A%23091934%2Ct%3Aboundary%7Ce%3Ag%7Cc%3A%23064f85%2Ct%3Arailway%7Ce%3Aall%7Cv%3Aoff%2Ct%3Ahighway%7Ce%3Ag%7Cc%3A%23004981%2Ct%3Ahighway%7Ce%3Ag.f%7Cc%3A%23005b96%7Cl%3A1%2Ct%3Ahighway%7Ce%3Al%7Cv%3Aon%2Ct%3Aarterial%7Ce%3Ag%7Cc%3A%23004981%7Cl%3A-39%2Ct%3Aarterial%7Ce%3Ag.f%7Cc%3A%2300508b%2Ct%3Agreen%7Ce%3Aall%7Cv%3Aoff%7Cc%3A%23056197%2Ct%3Asubway%7Ce%3Aall%7Cv%3Aoff%2Ct%3Amanmade%7Ce%3Aall%7Cv%3Aoff%2Ct%3Alocal%7Ce%3Aall%7Cv%3Aoff%2Ct%3Aarterial%7Ce%3Al%7Cv%3Aon%2Ct%3Aboundary%7Ce%3Ag.f%7Cc%3A%23029fd4%2Ct%3Abuilding%7Ce%3Aall%7Cc%3A%231a5787%2Ct%3Apoi%7Ce%3Aall%7Cv%3Aoff%2Ct%3Aall%7Ce%3Al%7Cv%3Aoff',
   })
@@ -112,7 +121,7 @@ image1.onload = function() {
           rotation : [90, 0, 0],
           uniforms : {
               texture,
-              offsetX : 0.0, 
+              offsetX : 0.0,
               offsetY : 0.0
           }
       }
@@ -125,7 +134,7 @@ image1.onload = function() {
           scale : [0.6, 0.6, 0.6],
           uniforms : {
               texture,
-              offsetX : 0.0, 
+              offsetX : 0.0,
               offsetY : 0.0
           }
       }
@@ -138,7 +147,7 @@ image1.onload = function() {
           scale : [0.4, 0.4, 0.4],
           uniforms : {
               texture,
-              offsetX : 0.0, 
+              offsetX : 0.0,
               offsetY : 0.0
           }
       }
@@ -151,7 +160,7 @@ image4.onload = function() {
   const texture =  new maptalksgl.reshader.Texture2D({
       data : image4,
       mag: 'linear'
-  });                                              
+  });
   new maptalks.EffectMarker(center, {
       symbol : {
           animation : true,
@@ -166,7 +175,7 @@ image4.onload = function() {
           scale : [1, 1, 1],
           uniforms : {
               texture,
-              width : 7, 
+              width : 7,
               height : 6
           }
       }
@@ -180,7 +189,7 @@ image3.onload = function() {
   const texture =  new maptalksgl.reshader.Texture2D({
       data : image3,
       mag: 'linear'
-  });                                              
+  });
   new maptalks.EffectMarker(center, {
       symbol : {
           animation : true,
@@ -275,7 +284,7 @@ image2.onload = function() {
           rotation : [90, 0, 0],
           uniforms : {
               texture,
-              width : 6, 
+              width : 6,
               height : 6
           }
       }
