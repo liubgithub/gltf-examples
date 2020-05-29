@@ -2,7 +2,7 @@
 
 [![Circle CI](https://circleci.com/gh/maptalks/examples/tree/master.svg?style=shield)](https://circleci.com/gh/maptalks/examples/tree/master)
 
-Source repository of [maptalks.js's examples](https://maptalks.github.io/examples/en/map/load/).
+Source repository of [gltflayer's examples](https://maptalks.github.io/examples/en/map/load/).
 
 ## Folder
 

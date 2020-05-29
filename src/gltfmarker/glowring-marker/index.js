@@ -4,8 +4,7 @@ var map = new maptalks.Map('map', {
   pitch: 45,
   baseLayer: new maptalks.TileLayer('base', {
     urlTemplate: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png',
-    subdomains: $(subdomains),
-    attribution: ['a','b','c','d']
+    subdomains: $(subdomains)
   })
 });
 var glowlayer = new maptalks.GlowMarkerLayer('glow').addTo(map);
