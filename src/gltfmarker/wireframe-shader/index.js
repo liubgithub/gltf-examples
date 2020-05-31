@@ -8,20 +8,16 @@ var map = new maptalks.Map('map', {
     attribution: '$(attribution)'
   })
 });
-var gui = new dat.GUI({ width: 250 });
-var Config = function () {
-  this.shader = 'phong';
-};
-var options = new Config();
+
 var url = '../../../../resource/gltf/cube-animation/cube.gltf';
 var symbol = {
   url: url,
-  shader: options.shader,
+  shader: 'wireframe',
   animation: true,
   loop: true,
   rotation: [90, 0, 0],
   uniforms: {
-    'baseColorFactor': [0.2, 0.1, 0.8, 1.0]
+    stroke: [1.0, 0, 0, 1.0]
   }
 };
 
@@ -31,8 +27,3 @@ var gltfmarker = new maptalks.GLTFMarker(position, {
   symbol: symbol
 }).addTo(gltflayer);
 
-const shaders = ['phong', 'wireframe'];
-var shaderController = gui.add(options, 'shader', shaders);
-shaderController.onChange(function (value) {
-  gltfmarker.setShader(value);
-});

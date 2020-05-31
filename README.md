@@ -2,7 +2,7 @@
 
 [![Circle CI](https://circleci.com/gh/maptalks/examples/tree/master.svg?style=shield)](https://circleci.com/gh/maptalks/examples/tree/master)
 
-Source repository of [maptalks.js's examples](https://maptalks.github.io/examples/en/map/load/).
+Source repository of [maptalks.gltf's examples](https://liubgithub.github.io/gltf-examples/cn/gltfmarker/addto-gltflayer/).
 
 ## Folder
 
@@ -36,8 +36,8 @@ gulp
 
 3. Open the browser at
 
-* english : [http://localhost:20001/examples/en/](http://localhost:20001/examples/en/)
-* chinese: [http://localhost:20001/examples/cn/](http://localhost:20001/examples/cn/)
+* english : [http://localhost:20001/gltf-examples/en/](http://localhost:20001/gltf-examples/en/)
+* chinese: [http://localhost:20001/gltf-examples/cn/](http://localhost:20001/gltf-examples/cn/)
 
 ## Contribute and Publish
 

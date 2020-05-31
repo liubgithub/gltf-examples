@@ -19,7 +19,7 @@ var markupRegex = /([^\/^\.]*)\.html$/;
 var locales = ['en', 'cn'];
 
 var siteInfo = {
-  baseurl: '/examples'
+  baseurl: '/gltf-examples'
 };
 
 var mapParams = {
@@ -272,7 +272,7 @@ gulp.task('watch', ['build'], function () {
 gulp.task('connect', ['watch'], function () {
   connect.server({
     name : 'maptalks examples',
-    base : '/examples',
+    base : '/gltf-examples',
     root: './dist',
     livereload: true,
     port: 20001

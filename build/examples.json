@@ -10,7 +10,7 @@
         {"name" : "show-hide", "title" : {"cn" : "模型的显示与隐藏", "en" : "show or hide gltfmarker"}},
         {"name" : "change-trs", "title" : {"cn" : "控制模型的平移、旋转、缩放", "en" : "control gltfmarker's translation、rotation、scale"}},
         {"name" : "set-uniform", "title" : {"cn" : "设置模型的unfirom", "en" : "set gltfmarker's unifrom"}},
-        {"name" : "change-shader", "title" : {"cn" : "切换模型的渲染着色器", "en" : "change gltfmarker's shader"}},
+        {"name" : "wireframe-shader", "title" : {"cn" : "wireframe着色器", "en" : "wireframe shader"}},
         {"name" : "set-symbol", "title" : {"cn" : "设置模型的symbol", "en" : "set gltfmarker's symbol"}},
         {"name" : "open-infowindow", "title" : {"cn" : "打开信息框", "en" : "open infowindow of gltfmarker"}},
         {"name" : "mouse-events", "title" : {"cn" : "监听鼠标事件", "en" : "listenning mouse events"}},
