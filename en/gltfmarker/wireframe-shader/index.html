@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>maptalks - add a data item</title>
+  <title>maptalks - wireframe shader</title>
   <link rel="stylesheet" href="/gltf-examples/css/main-ce8a2b.css" />
   <link rel="stylesheet" href="/gltf-examples/code-prettify/prettify.css" />
   <script type="text/javascript" src="/gltf-examples/code-prettify/prettify.js"></script>
@@ -24,7 +24,7 @@
           <a href="http://maptalks.org/" title="maptalks.org" class="logo">
           </a>
           <div class="lang-switch">
-              <div class="lang-option"><a href="/gltf-examples/cn/groupgltfmarker\add-data">中文</a></div>
+              <div class="lang-option"><a href="/gltf-examples/cn/gltfmarker\wireframe-shader">中文</a></div>
           </div>
       </div>
 
@@ -219,9 +219,9 @@
     <div class="demo-panel">
 
       <div class="title-area">
-        <div class="title">add a data item</div>
+        <div class="title">wireframe shader</div>
         <div class="action-area">
-          <a class="action-link" href="https://github.com/maptalks/examples/tree/master/src/groupgltfmarker\add-data" target="_blank">
+          <a class="action-link" href="https://github.com/maptalks/examples/tree/master/src/gltfmarker\wireframe-shader" target="_blank">
             <div class="action-button button">
               <i class="icon source"></i>Source
             </div>
@@ -260,7 +260,7 @@
 &lt;html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1&quot;&gt;
-  &lt;title&gt;instance gltf marker - add a data item&lt;/title&gt;
+  &lt;title&gt;gltfmarker - wireframe shader&lt;/title&gt;
   &lt;style type&#x3D;&quot;text/css&quot;&gt;
     html,body{margin:0px;height:100%;width:100%}
     .container{width:100%;height:100%}
@@ -270,7 +270,6 @@
   &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;/gltf-examples/lib/maptalksgl.js&quot;&gt;&lt;/script&gt;
   &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;/gltf-examples/lib/maptalks.gltf.js&quot;&gt;&lt;/script&gt;
   &lt;body&gt;
-    
     &lt;div id&#x3D;&quot;map&quot; class&#x3D;&quot;container&quot;&gt;&lt;/div&gt;
 
     &lt;script&gt;
@@ -284,46 +283,25 @@
           attribution: &#x27;&amp;copy; &lt;a href&#x3D;&quot;http://osm.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &amp;copy; &lt;a href&#x3D;&quot;https://carto.com/&quot;&gt;CARTO&lt;/a&gt;&#x27;
         })
       });
+
       var url &#x3D; &#x27;../../../../resource/gltf/cube-animation/cube.gltf&#x27;;
       var symbol &#x3D; {
+        url: url,
+        shader: &#x27;wireframe&#x27;,
         animation: true,
         loop: true,
-        url: url,
         rotation: [90, 0, 0],
         uniforms: {
-          &#x27;baseColorFactor&#x27;: [0.8, 0.0, 0.0, 1.0]
+          stroke: [1.0, 0, 0, 1.0]
         }
       };
-      
-      var gltflayer &#x3D; new maptalks.GLTFLayer(&#x27;groupgltflayer&#x27;).addTo(map);
+
+      var gltflayer &#x3D; new maptalks.GLTFLayer(&#x27;gltf&#x27;).addTo(map);
       var position &#x3D; map.getCenter();
-      
-      //准备groupgltfmarker的数据
-      var data &#x3D; [];
-      var coordinate &#x3D; position.add(0, 0);
-      for (let i &#x3D; 0; i &lt; 10; i++) {
-          for (let j &#x3D; 0; j &lt; 10; j++) {
-              data.push({
-                  coordinates : coordinate.add(i * 0.01, j * 0.01),
-                  translation : [0, 0, 0],
-                  rotation : [0, 0, 0],
-                  scale : [1, 1, 1],
-                  color : [i / 15 + 0.2, 0.1 + j / 12, 1.0 - (i + j) / 20, 0.9]
-              });
-          }
-      }
-      
-      var groupgltfmarker &#x3D; new maptalks.GroupGLTFMarker(data, {
+      var gltfmarker &#x3D; new maptalks.GLTFMarker(position, {
         symbol: symbol
       }).addTo(gltflayer);
-      
-      groupgltfmarker.addData({
-        coordinates : coordinate.add(-0.02, 0.01),
-        translation : [0, 0, 0],
-        rotation : [0, 0, 0],
-        scale : [2, 2, 2],
-        color : [1.0, 0.4, 0.3, 1.0]
-      });
+
 
     &lt;/script&gt;
   &lt;/body&gt;
@@ -357,46 +335,24 @@ var map = new maptalks.Map('map', {
     attribution: '&copy; <a href="http://osm.org">OpenStreetMap</a>  contributors, &copy; <a href="https://carto.com/">CARTO</a> '
   })
 });
+
 var url = '../../../../resource/gltf/cube-animation/cube.gltf';
 var symbol = {
+  url: url,
+  shader: 'wireframe',
   animation: true,
   loop: true,
-  url: url,
   rotation: [90, 0, 0],
   uniforms: {
-    'baseColorFactor': [0.8, 0.0, 0.0, 1.0]
+    stroke: [1.0, 0, 0, 1.0]
   }
 };
 
-var gltflayer = new maptalks.GLTFLayer('groupgltflayer').addTo(map);
+var gltflayer = new maptalks.GLTFLayer('gltf').addTo(map);
 var position = map.getCenter();
-
-//准备groupgltfmarker的数据
-var data = [];
-var coordinate = position.add(0, 0);
-for (let i = 0; i < 10; i++) {
-  for (let j = 0; j < 10; j++) {
-    data.push({
-      coordinates: coordinate.add(i * 0.01, j * 0.01),
-      translation: [0, 0, 0],
-      rotation: [0, 0, 0],
-      scale: [1, 1, 1],
-      color: [i / 15 + 0.2, 0.1 + j / 12, 1.0 - (i + j) / 20, 0.9]
-    });
-  }
-}
-
-var groupgltfmarker = new maptalks.GroupGLTFMarker(data, {
+var gltfmarker = new maptalks.GLTFMarker(position, {
   symbol: symbol
-}).addTo(gltflayer);
-
-groupgltfmarker.addData({
-  coordinates: coordinate.add(-0.02, 0.01),
-  translation: [0, 0, 0],
-  rotation: [0, 0, 0],
-  scale: [2, 2, 2],
-  color: [1.0, 0.4, 0.3, 1.0]
-});</textarea>
+}).addTo(gltflayer);</textarea>
     <textarea id="css-data" name="css">
 html, body {
   margin:0px;
@@ -431,8 +387,8 @@ html, body {
       var cssDataNode = document.getElementById('css-data');
       var cssData = cssDataNode.innerText;
       var data = {
-        title: "add a data item",
-        description: "instance gltf marker - add a data item",
+        title: "wireframe shader",
+        description: "gltfmarker - wireframe shader",
       };
       data.html = htmlData;
       data.js = jsData;

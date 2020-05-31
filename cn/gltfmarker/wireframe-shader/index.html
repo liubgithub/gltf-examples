@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>maptalks - 设置模型的外轮廓</title>
+  <title>maptalks - wireframe着色器</title>
   <link rel="stylesheet" href="/gltf-examples/css/main-ce8a2b.css" />
   <link rel="stylesheet" href="/gltf-examples/code-prettify/prettify.css" />
   <script type="text/javascript" src="/gltf-examples/code-prettify/prettify.js"></script>
@@ -24,7 +24,7 @@
           <a href="http://maptalks.org/" title="maptalks.org" class="logo">
           </a>
           <div class="lang-switch">
-              <div class="lang-option"><a href="/gltf-examples/en/gltfmarker\set-outline">EN</a></div>
+              <div class="lang-option"><a href="/gltf-examples/en/gltfmarker\wireframe-shader">EN</a></div>
           </div>
       </div>
 
@@ -219,9 +219,9 @@
     <div class="demo-panel">
 
       <div class="title-area">
-        <div class="title">设置模型的外轮廓</div>
+        <div class="title">wireframe着色器</div>
         <div class="action-area">
-          <a class="action-link" href="https://github.com/maptalks/examples/tree/master/src/gltfmarker\set-outline" target="_blank">
+          <a class="action-link" href="https://github.com/maptalks/examples/tree/master/src/gltfmarker\wireframe-shader" target="_blank">
             <div class="action-button button">
               <i class="icon source"></i>源码
             </div>
@@ -260,7 +260,7 @@
 &lt;html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1&quot;&gt;
-  &lt;title&gt;gltf模型 - 设置模型的外轮廓&lt;/title&gt;
+  &lt;title&gt;gltf模型 - wireframe着色器&lt;/title&gt;
   &lt;style type&#x3D;&quot;text/css&quot;&gt;
     html,body{margin:0px;height:100%;width:100%}
     .container{width:100%;height:100%}
@@ -270,7 +270,6 @@
   &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;/gltf-examples/lib/maptalksgl.js&quot;&gt;&lt;/script&gt;
   &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;/gltf-examples/lib/maptalks.gltf.js&quot;&gt;&lt;/script&gt;
   &lt;body&gt;
-    &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://cdn.jsdelivr.net/npm/dat.gui/build/dat.gui.min.js&quot;&gt;&lt;/script&gt;
     &lt;div id&#x3D;&quot;map&quot; class&#x3D;&quot;container&quot;&gt;&lt;/div&gt;
 
     &lt;script&gt;
@@ -284,31 +283,25 @@
           attribution: &#x27;&amp;copy; &lt;a href&#x3D;&quot;http://osm.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &amp;copy; &lt;a href&#x3D;&quot;https://carto.com/&quot;&gt;CARTO&lt;/a&gt;&#x27;
         })
       });
-      var gui &#x3D; new dat.GUI({ width: 250 });
-      var Config &#x3D; function () {
-        this.outline &#x3D; false;
-      };
-      var options &#x3D; new Config();
+
       var url &#x3D; &#x27;../../../../resource/gltf/cube-animation/cube.gltf&#x27;;
       var symbol &#x3D; {
         url: url,
+        shader: &#x27;wireframe&#x27;,
+        animation: true,
+        loop: true,
         rotation: [90, 0, 0],
         uniforms: {
-          &#x27;baseColorFactor&#x27;: [0.0, 0.2, 0.8, 1.0]
+          stroke: [1.0, 0, 0, 1.0]
         }
       };
-      
+
       var gltflayer &#x3D; new maptalks.GLTFLayer(&#x27;gltf&#x27;).addTo(map);
       var position &#x3D; map.getCenter();
       var gltfmarker &#x3D; new maptalks.GLTFMarker(position, {
-        outline: options.outline,
         symbol: symbol
       }).addTo(gltflayer);
-      
-      var animationController &#x3D; gui.add(options, &#x27;outline&#x27;);
-      animationController.onChange(function (value) {
-        gltfmarker.setOutline(value);
-      });
+
 
     &lt;/script&gt;
   &lt;/body&gt;
@@ -329,7 +322,6 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks/dist/maptalks.min.js"></script>
 <script type="text/javascript" src="/gltf-examples/lib/maptalksgl.js"></script>
 <script type="text/javascript" src="/gltf-examples/lib/maptalks.gltf.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/dat.gui/build/dat.gui.min.js"></script>
 <div id="map" class="container"></div>
 </textarea>
     <textarea id="js-data" name="js">
@@ -343,33 +335,24 @@ var map = new maptalks.Map('map', {
     attribution: '&copy; <a href="http://osm.org">OpenStreetMap</a>  contributors, &copy; <a href="https://carto.com/">CARTO</a> '
   })
 });
-var gui = new dat.GUI({
-  width: 250
-});
-var Config = function() {
-  this.outline = false;
-};
-var options = new Config();
+
 var url = '../../../../resource/gltf/cube-animation/cube.gltf';
 var symbol = {
   url: url,
+  shader: 'wireframe',
+  animation: true,
+  loop: true,
   rotation: [90, 0, 0],
   uniforms: {
-    'baseColorFactor': [0.0, 0.2, 0.8, 1.0]
+    stroke: [1.0, 0, 0, 1.0]
   }
 };
 
 var gltflayer = new maptalks.GLTFLayer('gltf').addTo(map);
 var position = map.getCenter();
 var gltfmarker = new maptalks.GLTFMarker(position, {
-  outline: options.outline,
   symbol: symbol
-}).addTo(gltflayer);
-
-var animationController = gui.add(options, 'outline');
-animationController.onChange(function(value) {
-  gltfmarker.setOutline(value);
-});</textarea>
+}).addTo(gltflayer);</textarea>
     <textarea id="css-data" name="css">
 html, body {
   margin:0px;
@@ -404,8 +387,8 @@ html, body {
       var cssDataNode = document.getElementById('css-data');
       var cssData = cssDataNode.innerText;
       var data = {
-        title: "设置模型的外轮廓",
-        description: "gltf模型 - 设置模型的外轮廓",
+        title: "wireframe着色器",
+        description: "gltf模型 - wireframe着色器",
       };
       data.html = htmlData;
       data.js = jsData;
